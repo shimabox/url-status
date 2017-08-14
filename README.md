@@ -1,4 +1,9 @@
 # url-status
+[![Build Status](https://travis-ci.org/shimabox/url-status.svg?branch=master)](https://travis-ci.org/shimabox/url-status)
+[![License](https://poser.pugx.org/shimabox/url-status/license)](https://packagist.org/packages/shimabox/url-status)
+[![Latest Stable Version](https://poser.pugx.org/shimabox/url-status/v/stable)](https://packagist.org/packages/shimabox/url-status)
+[![Latest Unstable Version](https://poser.pugx.org/shimabox/url-status/v/unstable)](https://packagist.org/packages/shimabox/url-status)
+
 Passing the url returns the status by looking at the header information
 
 Inspired by [https://secure.php.net/manual/ja/function.get-headers.php#119497](https://secure.php.net/manual/ja/function.get-headers.php#119497 "PHP: get_headers - Manual")
