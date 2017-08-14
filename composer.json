@@ -1,0 +1,30 @@
+{
+    "name": "shimabox/url-status",
+    "description": "Passing the url returns the status by looking at the header information",
+    "keywords": ["http", "header"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/shimabox/url-status",
+    "authors": [
+        {
+            "name": "shimabox",
+            "email": "shimabox@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.4|^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SMB\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SMB\\Tests\\": "tests/"
+        }
+    }
+}
