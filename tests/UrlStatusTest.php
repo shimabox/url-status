@@ -2,6 +2,7 @@
 
 namespace SMB\Tests;
 
+use PHPUnit\Framework\TestCase;
 use SMB\UrlStatus;
 
 /**
@@ -9,7 +10,7 @@ use SMB\UrlStatus;
  *
  * @author shimabox.net
  */
-class UrlStatusTest extends \PHPUnit_Framework_TestCase
+class UrlStatusTest extends TestCase
 {
     /**
      * URLからヘッダー情報を取得できる
@@ -87,6 +88,8 @@ class UrlStatusTest extends \PHPUnit_Framework_TestCase
     public function it_throws_an_exception_when_function_name_not_matching_pattern()
     {
         $actual = UrlStatus::get('https://example.com');
+
+        $this->expectException("LogicException");
         $actual->isHoge();
     }
 }
