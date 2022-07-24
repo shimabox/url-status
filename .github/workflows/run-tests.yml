@@ -1,0 +1,43 @@
+name: "Run Tests"
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4]
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Cache dependencies
+      id: composer-cache
+      uses: actions/cache@v2
+      with:
+        path: ~/.composer/cache/files
+        key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
+        restore-keys: |
+          dependencies-php-${{ matrix.php }}-composer-
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        coverage: none
+
+    - name: Install dependencies
+      run: composer install
+
+    - name: Run test
+      run: composer test
