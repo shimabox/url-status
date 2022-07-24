@@ -68,7 +68,7 @@ class UrlStatusTest extends TestCase
     public function it_can_handle_invalid_url()
     {
         $url = 'http://www.goo000gle.com/';
-        
+
         $actual = UrlStatus::get($url);
 
         $this->assertFalse($actual->isValidUrl());
@@ -81,15 +81,14 @@ class UrlStatusTest extends TestCase
 
     /**
      * 関数名がパターン(/\Ais(\d{3})\z/)にマッチしていない時に例外を投げる
-     * @expectedException        \LogicException
-     * @expectedExceptionMessage Only isXXX functions are allowed
      * @test
      */
     public function it_throws_an_exception_when_function_name_not_matching_pattern()
     {
-        $actual = UrlStatus::get('https://example.com');
+        $this->expectException('LogicException');
+        $this->expectExceptionMessage('Only isXXX functions are allowed');
 
-        $this->expectException("LogicException");
+        $actual = UrlStatus::get('https://example.com');
         $actual->isHoge();
     }
 }
