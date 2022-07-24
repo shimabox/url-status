@@ -1,4 +1,5 @@
 # url-status
+[![Run Tests](https://github.com/shimabox/url-status/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/shimabox/url-status/actions/workflows/run-tests.yml)
 [![License](https://poser.pugx.org/shimabox/url-status/license)](https://packagist.org/packages/shimabox/url-status)
 [![Latest Stable Version](https://poser.pugx.org/shimabox/url-status/v/stable)](https://packagist.org/packages/shimabox/url-status)
 [![Latest Unstable Version](https://poser.pugx.org/shimabox/url-status/v/unstable)](https://packagist.org/packages/shimabox/url-status)
@@ -76,6 +77,10 @@ $ret = \SMB\UrlStatus::get('http://localhost/post.php', $options);
 
 ## Testing
 
+```
+$ composer test
+```
+or
 ```
 $ vendor/bin/phpunit
 ```
